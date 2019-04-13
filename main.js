@@ -3,24 +3,21 @@ var assets = [
 
     //image ... サンプル用
     "images/title.png",// タイトル
-    "images/do_daruma.png",
-    "images/hat_tanu.png",
-    "images/hat_ume.png",
 
-    //sound ...　サンプル用
-    "sounds/bgm_gameover_1.mp3",
-    "sounds/jingle_1up.mp3",
-    "sounds/se_discovery_1.mp3",
-    "sounds/se_gyuin.mp3",
-    "sounds/se_jump_standard.mp3",
-    "sounds/se_pyuun.mp3",
-    "sounds/se_quizright_1.mp3",
+    "images/do_daruma.png",
+    "images/hat_ume.png",
 ];
 
 
-//TODO: ステージの登録
-//var scenes = [game1];         //ステージが１つの例
-var scenes = [game1, game2];    //ランダムでステージを切り替えたい例
+/**
+ * TODO: ステージの登録
+ */
+
+//ステージが１つの例
+// var scenes = [game1];
+
+//ランダムでステージを切り替えたい例
+var scenes = [game1, game2, game3];
 
 
 //画面遷移 (ランダム)
@@ -94,8 +91,8 @@ function nextScene() {
 //ゲーム開始
 function gameStart() {
   //TODO: 音
-  var sound = core.assets["sounds/se_gyuin.mp3"].clone();
-  sound.play();
+  // var sound = core.assets[""].clone();
+  // sound.play();
 
   nextScene();
 }
@@ -105,8 +102,8 @@ function gameStart() {
 function gameClear() {
 
   //TODO: 音
-  var sound = core.assets["sounds/jingle_1up.mp3"].clone();
-  sound.play();
+  // var sound = core.assets[""].clone();
+  // sound.play();
 
   score++;
   nextScene();
@@ -117,8 +114,8 @@ function gameClear() {
 function gameOver(scene, isShowGameOver, buttonColor, textColor) {
 
   //TODO: 音
-  var sound = core.assets["sounds/bgm_gameover_1.mp3"].clone();
-  sound.play();
+  // var sound = core.assets[""].clone();
+  // sound.play();
 
   //半透明
   var layer = new Sprite(scene.width, scene.height);
@@ -138,8 +135,8 @@ function gameOver(scene, isShowGameOver, buttonColor, textColor) {
   showUIRetry(scene, buttonColor, textColor, function(){
 
     //TODO: 音
-    var sound = core.assets["sounds/se_gyuin.mp3"].clone();
-    sound.play();
+    // var sound = core.assets[""].clone();
+    // sound.play();
 
     //スコアリセット
     score = 0;
@@ -153,8 +150,8 @@ function gameOver(scene, isShowGameOver, buttonColor, textColor) {
   showUIEnd(scene, buttonColor, textColor, function(){
 
     //TODO: 音
-    var sound = core.assets["sounds/se_discovery_1.mp3"].clone();
-    sound.play();
+    // var sound = core.assets[""].clone();
+    // sound.play();
 
     //nineleap スコア送信
     core.end(score, "score" + score);
