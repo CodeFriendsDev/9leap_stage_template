@@ -9,6 +9,11 @@ var assets = [
 ];
 
 
+//screen size
+let GAME_SCREENSIZE_W = 320;
+let GAME_SCREENSIZE_H = 320;
+
+
 /**
  * TODO: ステージの登録
  */
@@ -194,7 +199,7 @@ function gameOver(scene, isShowGameOver, buttonColor, textColor) {
 
 // タイトル画面
 function titleStart(){
-  var scene = gameManager.createTitleScene();
+  var scene = new Scene();
   core.replaceScene(scene);
   //core.pause();
 
@@ -206,14 +211,15 @@ function titleStart(){
 
 //==========
 // EnchantJS
-enchant();
-var gameManager;
+//==========
 var core;
-var scene;
+enchant();
 window.onload = function(){
-    gameManager = new common.GameManager();
-    core = gameManager.createCore(320, 320);
+    core = new Core(GAME_SCREENSIZE_W, GAME_SCREENSIZE_H);
+    core.fps = 16;
     core.preload(assets);
-    core.onload = function(){titleStart();};
+    core.onload = function(){
+        titleStart();
+    };
     core.start();
-}
+};
